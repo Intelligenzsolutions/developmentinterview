@@ -22,3 +22,4 @@ Create a script that sends a formatted HTML message to a HipChat room
 * Read the HipChat API documentation https://www.hipchat.com/docs/apiv2/
 * Test your script works before sending messages to the 'Interviews' room
 * There is no time limit for this task, except that the HipChat auth token will expire on the date/time provided
+* The aim of this task is a (hopefully fun) simple way to demonstrate basic skills in development. You are welcome to take short cuts, explain what and why if you do
