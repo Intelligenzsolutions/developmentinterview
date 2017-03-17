@@ -4,7 +4,7 @@
 Create a script that sends a formatted HTML message to a HipChat room
 
 ## Basic requirements:
-* The code should be written using either Powershell (version 5 or higher), Python (version 2.7 or higher) or JavaScript
+* The code should be written using your choice of: Powershell (version 5 or higher), Python (version 2.7 or higher) or JavaScript
 * The code should run on the Windows platform
 * The script should be reusable, eg: for different messages
 * Create your HTML using the given wireframe in the GitHub repo, field values should be replaced as noted
