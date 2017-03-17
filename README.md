@@ -1,6 +1,6 @@
-# Development Interview
+# Development Interview Task
 
-## The task:
+## Overview:
 Create a script that sends a formatted HTML message to a HipChat room
 
 ## Basic requirements:
