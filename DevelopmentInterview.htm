@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  Enter the message to send to the Interiews room:<br>
+  <input type="text" id="messagetext"><br>
+
+
+<p>Click the button to send the message to the Hipchat interviews room:</p>
+
+<button onclick="myFunction()">Send Message</button>
+
+
+<script>
+
+function readyAJAX() {
+// Create a new XMLHTTP object
+	try 	{
+		return new XMLHttpRequest();
+	} 
+
+	catch(e) 
+	{
+		try	 {
+			return new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch(e) {
+			try	{
+				return new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch(e) {
+				return "A newer browser is needed.";
+			}
+		}
+	}
+}
+
+function myFunction() {
+// POST a notification request to the Hipchat Interviews room 
+
+// Create a new XMLHTTP variable				
+var requestObj = readyAJAX();
+
+// Declare variables for the url and params of the POST request
+var url = "https://api.hipchat.com/v2/room/Interviews/notification?auth_token=4cnBNzUQTDu4lCpZL9oEVR0Dr6OckATlitSbm9OZ";
+console.log("POST request url : "  + url);
+
+var params = '{"color": "green", "message": "' + document.getElementById('messagetext').value + '", "notify": "false", "message_format": "html"}';
+console.log("POST request parameters : " + params);
+
+requestObj.open("POST",url,true);
+
+// register a callback function which is executed when the state of the request changes
+requestObj.onreadystatechange = function() {
+	
+		// If the readState of the request changes to 4 then the request has been completed
+		if (requestObj.readyState == 4) {
+		
+			// If the status is 200 this means that the command has executed successfully
+			if (requestObj.status == 200) {
+				alert("The notification has been sent successfully");				
+			} else {
+				alert("There was an error in sending the notification " + requestObj.status + " " + requestObj.statusText + " " + requestObj.responseText);
+							}
+			};
+					};
+
+requestObj.setRequestHeader("Content-type","application/json");
+
+requestObj.send(params);
+
+
+}
+</script>
+
+</body>
+</html>
